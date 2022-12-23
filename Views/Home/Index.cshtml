@@ -1,0 +1,82 @@
+﻿
+
+<style>
+    #search{
+    width: 480px;
+    height: 49px;
+    border: 3px solid black;
+    padding: 1px 0 0 48px;
+    font-size: 22px;
+    color: blue;
+    background-image: url('images/search.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: 0;
+}
+</style>
+
+
+<div class="row">
+    <div class="col-md-8" >
+       
+<div class="input-group mb-3">
+
+            <input   type="text" class="form-control"   id="inputtextid"   >
+</div>
+
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-8"  >
+         <div id="PartialDivId"></div>
+    </div>
+</div>
+
+
+
+<script>
+
+    $(function () {
+         Populate();
+    });
+
+    function Populate(){
+        $("#PartialDivId").load("/Home/_PopulatePartial");
+    }
+
+    const input = document.querySelector('input');
+ 
+
+input.addEventListener('input', updateValue);
+
+function updateValue() {
+ 
+    var id= $("#inputtextid").val();
+        var yy = document.querySelector('#UlDivId li:nth-of-type(' + id + ')');
+
+        setTimeout(function () {
+            yy.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+
+            var zz = document.querySelector('#UlDivId li:nth-of-type(' + id + ')');
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(zz);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }, 600);
+
+        
+
+
+
+        
+}
+
+
+ 
+
+  
+
+</script>

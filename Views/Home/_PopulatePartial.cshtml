@@ -1,0 +1,17 @@
+﻿@using testscroll.Model
+@model IEnumerable<Model1>
+
+
+    <div style="height:500px;overflow:scroll;">
+
+    <ul class="list-group" id="UlDivId">
+        @{
+            foreach (Model1 item in Model)
+            {
+                <li id="@item.Id" class="list-group-item"> @item.Text</li>
+            }
+        }
+    </ul>
+
+    </div>
+
